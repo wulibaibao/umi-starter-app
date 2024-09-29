@@ -2,7 +2,7 @@ import React from 'react';
 import { Divider, Menu } from 'antd';
 import { useAppData, history, useAccess, useMatch, useLocation } from '@umijs/max';
 import type { MenuProps } from 'antd';
-import logo from '@/assets/img/logo.png';
+// import logo from '@/assets/img/logo.png';
 
 const menuIgnorePath = ['/login', '/sigup', '/~demos/:uuid', '/~docs', '/_demos/:uuid'];
 
@@ -53,17 +53,15 @@ const SliderComponent: React.FC = () => {
     return (
         <div className="h-full w-[241px] p-5 flex flex-col border-r border-r-slate-200 border-solid border-y-transparent border-l-transparent">
             <div className="flex items-center justify-center w-full h-[128px]">
-                <img src={logo} className="inline-block w-[135.5px] h-[60px]" />
+                <img /* src={logo} */ className="inline-block w-[135.5px] h-[60px]" />
             </div>
             <Divider className="m-0" />
             <Menu
                 className="!border-0 !border-transparent"
                 items={baseRoutes?.reduce((pre: any, cur: any) => {
                     const { routes, parentId, id, name } = cur;
-                    // if (cur.access && !access[cur?.access]?.()) return pre;
                     const $item: any = {
                         label: name,
-                        // icon: switchMenuIcon(cur),
                         key: id,
                     };
                     if (routes && routes.length > 0) {
@@ -80,7 +78,7 @@ const SliderComponent: React.FC = () => {
                     return pre.concat($item);
                 }, [])}
                 mode="inline"
-                openKeys={openKeys}
+                openKeys={openKeys as any}
                 onOpenChange={onOpenChange}
                 selectedKeys={activeKeys}
                 onClick={onClick}

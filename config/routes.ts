@@ -18,32 +18,6 @@ export default [
         component: './auth/register',
     },
     {
-        path: '/page1',
-        name: 'table1',
-        component: './Table',
-    },
-    {
-        path: '/page2',
-        name: 'table2',
-        component: './Table',
-    },
-    {
-        path: '/p',
-        name: 'p',
-        routes: [
-            {
-                path: '/p/child1',
-                name: 'child1',
-                component: './Home/page1',
-            },
-            {
-                path: '/p/child2',
-                name: 'child2',
-                component: './Home/page2',
-            },
-        ],
-    },
-    {
         path: '/access',
         name: '权限',
         component: './Access',
