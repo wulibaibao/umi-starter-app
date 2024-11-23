@@ -3,7 +3,7 @@ import { queryUserInfo } from './services/users/auth';
 import type { RequestConfig, RuntimeConfig } from '@umijs/max';
 import UnAccessible from './pages/UnAccessible';
 import ErrorComponent from './pages/ErrorComponent';
-import { history, matchRoutes } from '@umijs/max';
+import { history } from '@umijs/max';
 import { authIgnorePath } from './constants';
 import { ConfigProvider } from 'antd';
 
@@ -63,12 +63,8 @@ export const layout: RuntimeConfig['layout'] | any = () => {
     menu: {
       locale: false,
     },
-    unAccessible: () => {
-      return <UnAccessible />;
-    },
-    ErrorComponent: () => {
-      return <ErrorComponent />;
-    },
+    UnAccessible: <UnAccessible />,
+    ErrorComponent: <ErrorComponent />,
   };
 };
 
@@ -90,7 +86,7 @@ export const render: RuntimeConfig['render'] = async (oldRender) => {
 };
 
 export const request: RequestConfig = {
-  timeout: 1000000,
+  timeout: 30 * 1000,
   // other axios options you want
   errorConfig: {
     errorHandler() {},
