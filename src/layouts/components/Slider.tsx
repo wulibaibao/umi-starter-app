@@ -10,8 +10,10 @@ const SliderComponent: React.FC = () => {
   const access = useAccess();
 
   const { clientRoutes } = appData;
+  console.log(clientRoutes);
   const { routes }: any = clientRoutes.filter((p: any) => p.path === '/')?.[0].routes?.[0];
 
+  console.log(routes);
   const baseRoutes = filterRouteData(routes);
 
   const onClick: MenuProps['onClick'] = (e) => {
@@ -20,7 +22,7 @@ const SliderComponent: React.FC = () => {
   };
 
   return (
-    <div className="h-full w-[241px] p-5 flex flex-col border-r border-r-slate-200 border-solid border-y-transparent border-l-transparent">
+    <div className="h-full p-5 flex flex-col border-r border-r-slate-200 border-solid border-y-transparent border-l-transparent">
       <div className="flex items-center justify-center w-full h-[128px]">
         <img /* src={logo} */ className="inline-block w-[135.5px] h-[60px]" />
       </div>
@@ -28,13 +30,13 @@ const SliderComponent: React.FC = () => {
       <Menu
         className="!border-0 !border-transparent"
         items={baseRoutes?.reduce((pre: any, cur: any) => {
-          const { routes, id, name } = cur;
+          const { routes: childRoutes, id, name } = cur;
           const $item: any = {
             label: name,
             key: id,
           };
-          if (routes && routes.length > 0) {
-            const $children = filterRouteData(routes);
+          if (!!childRoutes?.length) {
+            const $children = filterRouteData(childRoutes);
             if ($children.length > 0) {
               // $item['popupClassName'] = styles['headerMenuPopupCls'];
               $item['children'] = $children.map((i: any) => ({

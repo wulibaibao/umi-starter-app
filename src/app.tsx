@@ -64,12 +64,12 @@ export const layout: RuntimeConfig['layout'] | any = () => {
       locale: false,
     },
     UnAccessible: <UnAccessible />,
-    ErrorComponent: <ErrorComponent />,
+    ErrorBoundary: <ErrorComponent />,
   };
 };
 
 export const onRouteChange: RuntimeConfig['onRouteChange'] = ({ clientRoutes, location }) => {
-  console.log(clientRoutes);
+  // console.log(clientRoutes);
   const { pathname } = location;
   // 如果没有登录，重定向到 login
   /* if (!authIgnorePath.includes(pathname)) {

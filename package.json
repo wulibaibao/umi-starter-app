@@ -12,10 +12,10 @@
     "preview": "max build && umi preview --port 9527"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.5.1",
+    "@ant-design/icons": "^5.5.2",
     "@ant-design/pro-components": "^2.8.2",
-    "@umijs/max": "^4.3.34",
-    "antd": "^5.22.1",
+    "@umijs/max": "^4.3.36",
+    "antd": "^5.22.4",
     "clsx": "^2.1.1",
     "usehooks-ts": "^3.1.0"
   },
